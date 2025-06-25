@@ -1,0 +1,151 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+  Global styles for the Interactive Portfolio Website.
+  This file imports Tailwind CSS base, components, and utilities,
+  and can be used to add custom global CSS rules or overrides.
+*/
+
+/* Base styles for the body to ensure a consistent look and feel */
+body {
+  @apply bg-gray-900 text-gray-100 font-sans antialiased;
+  /* Smooth scrolling for anchor links */
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar styles for a more polished look */
+/* For Webkit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #2d3748; /* Tailwind gray-800 equivalent */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #4a5568; /* Tailwind gray-700 equivalent */
+  border-radius: 5px;
+  border: 2px solid #2d3748; /* To create a slight gap from the track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6b7280; /* Tailwind gray-600 equivalent */
+}
+
+/*
+  Utility classes for common animations or transitions.
+  These can be applied directly in JSX using className.
+*/
+
+/* Fade-in animation for elements appearing on scroll or load */
+.fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+  opacity: 0; /* Start invisible */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Simple hover effect for interactive elements */
+.hover-grow {
+  transition: transform 0.3s ease-in-out;
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+/*
+  Custom component styles (if not handled purely by Tailwind utility classes).
+  Example: A custom button style that extends Tailwind's defaults.
+*/
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 border border-gray-300 text-base font-medium rounded-md shadow-sm text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-300;
+}
+
+/*
+  Responsive typography adjustments (if not handled by Tailwind's default responsive classes).
+  Example: Adjusting h1 font size for smaller screens.
+*/
+h1 {
+  @apply text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight;
+}
+
+h2 {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold leading-tight;
+}
+
+h3 {
+  @apply text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight;
+}
+
+p {
+  @apply text-lg md:text-xl leading-relaxed;
+}
+
+/*
+  Ensure images are responsive by default.
+*/
+img {
+  @apply max-w-full h-auto;
+}
+
+/*
+  Focus styles for accessibility.
+  Using Tailwind's default focus ring is generally good, but
+  this can be used for custom focus styles if needed.
+*/
+*:focus {
+  outline: 2px solid theme('colors.indigo.500');
+  outline-offset: 2px;
+  border-radius: 3px; /* Match Tailwind's default rounded-md */
+}
+
+/* Override default focus for elements that already have a custom focus style */
+.no-outline-on-focus:focus {
+  outline: none;
+}
+
+/*
+  Cross-Project Context:
+  While this file primarily handles UI, we can define some global CSS variables
+  or classes that might be shared or referenced across microservices if they
+  were to share a common design system. For example, a global brand color.
+*/
+:root {
+  --color-primary: theme('colors.indigo.600');
+  --color-secondary: theme('colors.gray.700');
+  --color-markdown-previewer-accent: theme('colors.blue.500'); /* Example for Markdown Previewer */
+  --color-todo-app-accent: theme('colors.green.500'); /* Example for Todo App */
+}
+
+/* Example of a utility class that might be used by a microfrontend */
+.markdown-previewer-highlight {
+  color: var(--color-markdown-previewer-accent);
+  font-weight: bold;
+}
+
+.todo-app-status-indicator {
+  background-color: var(--color-todo-app-accent);
+  border-radius: 9999px; /* Tailwind's rounded-full */
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem; /* Tailwind's text-sm */
+  color: white;
+}
