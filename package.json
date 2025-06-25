@@ -1,0 +1,52 @@
+{
+  "name": "interactive-portfolio-website",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A personal portfolio website showcasing projects, skills, and contact information with smooth animations and responsive design.",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "next": "14.x.x",
+    "react": "18.x.x",
+    "react-dom": "18.x.x",
+    "framer-motion": "^11.0.0",
+    "react-icons": "^5.0.0"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "14.x.x",
+    "prettier": "^3.2.5",
+    "prettier-plugin-tailwindcss": "^0.5.14"
+  },
+  "browserslist": [
+    "defaults",
+    "not IE 11",
+    "not op_mini all"
+  ],
+  "keywords": [
+    "portfolio",
+    "nextjs",
+    "react",
+    "tailwindcss",
+    "framer-motion",
+    "responsive-design",
+    "personal-website"
+  ],
+  "author": "Your Name/Organization",
+  "license": "MIT"
+  // Cross-Project Context: This project is part of a larger interconnected system.
+  // Other services like 'Markdown Previewer' and 'Todo App' might interact
+  // with this portfolio, e.g., through API calls or shared components in a monorepo setup.
+  // For this 'package.json', we focus on the portfolio's direct dependencies.
+  // Inter-service communication details would typically be found in .env.local,
+  // next.config.js (for proxying), or README.md.
+}
